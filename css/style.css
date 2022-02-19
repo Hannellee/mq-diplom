@@ -42,13 +42,13 @@ a {
         margin-top: 25px;
     }
     .popup-text {
-        padding: 30px 23px 30px 23px;
+        /* padding: 30px 23px 30px 23px; */
     }
 }
 
 @media (min-width: 641px) {
     .popup-text {
-        padding: 55px 35px 53px 35px;
+        /* padding: 55px 35px 53px 35px; */
     }
 }
 
@@ -92,7 +92,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    /* display: none; */
+    display: none;
 }
 
 .popup::after {
@@ -116,24 +116,25 @@ a {
     position: relative;
     z-index: 34;
 
-    /* width: 390px; */
-    /* margin-top: 212px;     */
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     padding: 55px 30px 50px;
 
 }
 
-.popup-close {  /*почему-то не показывается крестик*/
+.popup-close {
+    background-image: url("../svg/form-x.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+
     position: absolute;
     top: 0;
     right: 0;
+    border: none;
 
     margin-right: 0;
     margin-left: auto;
     margin-bottom: 10px;
-    /* width: 22px;
-    height: 22px; */
+    margin-top: -35px;
 }
 
 .popup-title  { 
@@ -306,6 +307,10 @@ a {
         display: none;
     }
 
+    .menu {
+        display: flex;
+    }
+
     .menu-list {  
         display: flex;
     }
@@ -338,8 +343,15 @@ a {
 }
 
 @media (max-width: 1199px) {
+    .menu {
+        order: -1;
+    }
     .menu-list {
         display: none;
+    }
+    .page-header {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -349,7 +361,7 @@ a {
 
         background-image: url("../images/banner-bg-tablet.jpg");
     }
-
+    
     .logo-image {
         width: 155px;
     }
@@ -369,8 +381,10 @@ a {
         display: flex;
         flex-direction: column;
         padding-top: 225px;
+        padding-right: 15px;
         padding-bottom: 217px;
     }
+
     .logo {
         display: block;
         width: 75%;
@@ -386,10 +400,8 @@ a {
     }
     
     .menu-button {
-        position: absolute;
-        top: 35px;
-        right: 15px;
-    }   
+        margin-top: -355px;
+    }
 }
 
 .header::after {
@@ -429,9 +441,8 @@ h1 {
     justify-content: end;
 }
 
-.menu-button { /*не встает на место ((((((( в моб и планшет версиях тоже*/
+.menu-button {
     width: 24px;
-    margin-top: -15px;
     cursor: pointer;
     border: 0;
     outline: none;
@@ -483,8 +494,8 @@ h1 {
         width: 100%;
         min-height: 250px;
     }
-    .trend.now:not(:last-child){
-        margin-bottom: 3px; /* почему-то не применился пробел...*/
+    .trend-now:not(:last-child){
+        margin-bottom: 3px;
     }
     .trend-title {
         font-size: 16px;
@@ -586,7 +597,6 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 30px;
-    margin-bottom: 60px;
     align-items: flex-end;
 }
 
@@ -614,11 +624,9 @@ h1 {
     background-color: #e1d9bd;
 }
 
-.trend-content { /*не получается выровнять тренды в версии для планшета((*/
+.trend-content {
     position: relative;
-    border: 3px solid #75683a; /*Раомчку не получается поднять над маской тренда*/
-
-    /* z-index: 5; */
+    border: 3px solid #b59f5b;
 }
 
 .trend-now::after {
@@ -632,13 +640,10 @@ h1 {
     bottom: 0;
     left: 0;
     background-color: #000000;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .trend-now {
-    /* width: 24.5%;
-    min-height: 320px; */
-
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #000000;
@@ -734,7 +739,9 @@ h1 {
         width: 100%; 
         margin-top: 47px;
     }
-
+    .post-img {
+        width: 100%;
+    }
 
 }
 @media (min-width: 641px) and (max-width: 1199px) {
@@ -793,7 +800,7 @@ h1 {
     }
 
     .post-image {
-        width: 49.67%; /*381px;*/
+        width: 49.67%;
     }    
 
     .post-img {
@@ -802,7 +809,7 @@ h1 {
 
     .post-tags {
         width: 53.57%;
-        margin-left: 3.9%; /*30px;*/
+        margin-left: 3.9%;
     }
 
 }
@@ -818,19 +825,15 @@ h1 {
     margin-left: auto;
 }
 
-/* .main {
-    width: 775px;
-} */
-
 .posts {
     display: flex;
+    align-items: flex-start;
 }
 
 .post-img {
     
     height: 100%;
     object-fit: cover;
-    max-height: 295px;
 }
 
 .posts-tags-list {  
@@ -1300,7 +1303,6 @@ p {
     font-size: 14px;
     font-style: normal;
     color: #0f0d0e;
-    /* text-decoration-line: line-through; */
 }
 
 .old-price {
